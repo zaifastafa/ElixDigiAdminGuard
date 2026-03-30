@@ -56,7 +56,7 @@ class NotificationService
     {
         $configured = $this->systemConfigService->getString('ElixDigiAdminGuard.config.notificationRecipientEmail');
         if (!empty($configured)) {
-            return array_map('trim', explode(',', $configured));
+            return array_values(array_filter(array_map('trim', explode(',', $configured))));
         }
 
         $emails = $this->connection->fetchFirstColumn(

@@ -81,20 +81,4 @@ class InactivityService
         return $result;
     }
 
-    public function getUsersToAutoDisable(): array
-    {
-        $autoDisableDays = $this->systemConfigService->getInt('ElixDigiAdminGuard.config.autoDisableDays') ?: 180;
-
-        return array_filter(
-            $this->getAdminUsersWithStatus(),
-            fn (array $user) => $user['active']
-                && !$user['admin']
-                && $user['daysInactive'] >= $autoDisableDays
-        );
-    }
-
-    public function getActiveAdminCount(): int
-    {
-        return (int) $this->connection->fetchOne('SELECT COUNT(*) FROM `user` WHERE `active` = 1 AND `admin` = 1');
-    }
 }

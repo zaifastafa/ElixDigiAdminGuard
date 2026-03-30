@@ -10,17 +10,12 @@ class UserDisableService
     public function __construct(
         private readonly EntityRepository $userRepository,
         private readonly AuditLogService $auditLogService,
-        private readonly InactivityService $inactivityService,
     ) {
     }
 
     public function disableUser(string $userId, string $userName, string $userEmail, string $triggeredBy = 'system', bool $isSuperAdmin = false): bool
     {
         if ($isSuperAdmin) {
-            return false;
-        }
-
-        if ($this->inactivityService->getActiveAdminCount() <= 1) {
             return false;
         }
 

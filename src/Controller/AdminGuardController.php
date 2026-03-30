@@ -36,6 +36,10 @@ class AdminGuardController extends AbstractController
     #[Route(path: '/users/{userId}/disable', name: 'api.action.admin_guard.user.disable', methods: ['POST'], defaults: ['_acl' => ['elixdigi_admin_guard:manage']])]
     public function disableUser(string $userId): JsonResponse
     {
+        if (!Uuid::isValid($userId)) {
+            return new JsonResponse(['error' => 'Invalid user ID'], Response::HTTP_BAD_REQUEST);
+        }
+
         $user = $this->getUserInfo($userId);
         if (!$user) {
             return new JsonResponse(['error' => 'User not found'], Response::HTTP_NOT_FOUND);
@@ -59,6 +63,10 @@ class AdminGuardController extends AbstractController
     #[Route(path: '/users/{userId}/enable', name: 'api.action.admin_guard.user.enable', methods: ['POST'], defaults: ['_acl' => ['elixdigi_admin_guard:manage']])]
     public function enableUser(string $userId): JsonResponse
     {
+        if (!Uuid::isValid($userId)) {
+            return new JsonResponse(['error' => 'Invalid user ID'], Response::HTTP_BAD_REQUEST);
+        }
+
         $user = $this->getUserInfo($userId);
         if (!$user) {
             return new JsonResponse(['error' => 'User not found'], Response::HTTP_NOT_FOUND);
