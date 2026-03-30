@@ -1,0 +1,33 @@
+{
+    "name": "elixent-digital/admin-guard",
+    "description": "Admin user audit and inactivity management for Shopware 6",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ElixentDigital",
+            "homepage": "https://www.elixentdigital.com"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.7.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "ElixentDigital\\ElixDigiAdminGuard\\ElixDigiAdminGuard",
+        "plugin-icon": "src/Resources/config/logo/plugin.png",
+        "label": {
+            "de-DE": "Admin Guard - Benutzeraudit",
+            "en-GB": "Admin Guard - User Audit"
+        },
+        "description": {
+            "de-DE": "Erkennt und deaktiviert inaktive Admin-Konten automatisch",
+            "en-GB": "Detects and optionally disables inactive admin accounts"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "ElixentDigital\\ElixDigiAdminGuard\\": "src/"
+        }
+    }
+}

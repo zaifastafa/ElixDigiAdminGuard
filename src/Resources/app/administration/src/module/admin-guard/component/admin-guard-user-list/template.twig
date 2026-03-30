@@ -1,0 +1,74 @@
+{% block admin_guard_user_list %}
+<div class="admin-guard-user-list">
+
+    <sw-data-grid
+        :data-source="gridData"
+        :columns="columns"
+        :is-loading="isLoading"
+        :show-selection="false"
+        :show-actions="true"
+    >
+
+        {% block admin_guard_user_list_column_status %}
+        <template #column-status="{ item }">
+            <sw-label
+                :variant="getStatusVariant(item.status)"
+                appearance="pill"
+                size="small"
+            >
+                {{ getStatusLabel(item.status) }}
+            </sw-label>
+        </template>
+        {% endblock %}
+
+        {% block admin_guard_user_list_actions %}
+        <template #actions="{ item }">
+            <sw-context-menu-item
+                v-if="item.active && !item.admin"
+                variant="danger"
+                @click="onDisableUser(item)"
+            >
+                {{ $tc('admin-guard.userList.buttonDisable') }}
+            </sw-context-menu-item>
+
+            <sw-context-menu-item
+                v-if="!item.active"
+                variant="success"
+                @click="onEnableUser(item)"
+            >
+                {{ $tc('admin-guard.userList.buttonEnable') }}
+            </sw-context-menu-item>
+
+            <sw-context-menu-item
+                v-if="item.active && item.admin"
+                disabled
+            >
+                {{ $tc('admin-guard.userList.protectedSuperAdmin') }}
+            </sw-context-menu-item>
+        </template>
+        {% endblock %}
+
+    </sw-data-grid>
+
+    {% block admin_guard_user_list_confirm_disable %}
+    <sw-modal
+        v-if="showConfirmDisable"
+        :title="$tc('admin-guard.userList.confirmDisableTitle')"
+        variant="small"
+        @modal-close="cancelDisable"
+    >
+        <p>{{ $tc('admin-guard.userList.confirmDisableMessage') }}</p>
+
+        <template #modal-footer>
+            <sw-button @click="cancelDisable">
+                Cancel
+            </sw-button>
+            <sw-button variant="danger" @click="confirmDisable">
+                {{ $tc('admin-guard.userList.buttonDisable') }}
+            </sw-button>
+        </template>
+    </sw-modal>
+    {% endblock %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Inactivity Thresholds</title>
+        <title lang="de-DE">Inaktivitätsschwellen</title>
+
+        <input-field type="int">
+            <name>warningDays</name>
+            <label>Days since last login to trigger warning</label>
+            <label lang="de-DE">Tage seit letztem Login für Warnung</label>
+            <defaultValue>90</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>dangerDays</name>
+            <label>Days since last login to trigger danger status</label>
+            <label lang="de-DE">Tage seit letztem Login für Gefahr-Status</label>
+            <defaultValue>180</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Auto-Disable</title>
+        <title lang="de-DE">Automatische Deaktivierung</title>
+
+        <input-field type="bool">
+            <name>autoDisableEnabled</name>
+            <label>Automatically disable inactive users</label>
+            <label lang="de-DE">Inaktive Benutzer automatisch deaktivieren</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>autoDisableDays</name>
+            <label>Days of inactivity before auto-disable</label>
+            <label lang="de-DE">Tage der Inaktivität vor automatischer Deaktivierung</label>
+            <defaultValue>180</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Email Notifications</title>
+        <title lang="de-DE">E-Mail-Benachrichtigungen</title>
+
+        <input-field type="bool">
+            <name>emailNotificationsEnabled</name>
+            <label>Send scheduled inactivity reports</label>
+            <label lang="de-DE">Geplante Inaktivitätsberichte senden</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>notificationRecipientEmail</name>
+            <label>Recipient email (defaults to super admin)</label>
+            <label lang="de-DE">Empfänger-E-Mail (Standard: Super-Admin)</label>
+            <defaultValue></defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>emailFrequency</name>
+            <label>How often to send reports</label>
+            <label lang="de-DE">Wie oft Berichte gesendet werden</label>
+            <defaultValue>weekly</defaultValue>
+            <options>
+                <option value="daily">
+                    <name>Daily</name>
+                    <name lang="de-DE">Täglich</name>
+                </option>
+                <option value="weekly">
+                    <name>Weekly</name>
+                    <name lang="de-DE">Wöchentlich</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Audit Log</title>
+        <title lang="de-DE">Audit-Protokoll</title>
+
+        <input-field type="int">
+            <name>auditLogRetentionDays</name>
+            <label>Days to retain audit log entries</label>
+            <label lang="de-DE">Tage zur Aufbewahrung von Audit-Protokolleinträgen</label>
+            <defaultValue>365</defaultValue>
+        </input-field>
+    </card>
+</config>

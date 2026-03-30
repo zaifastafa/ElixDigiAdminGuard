@@ -1,0 +1,52 @@
+{
+    "admin-guard": {
+        "general": {
+            "title": "Admin Guard",
+            "description": "Admin-Benutzerinaktivität überwachen und verwalten"
+        },
+        "tabs": {
+            "users": "Benutzer",
+            "auditLog": "Audit-Log"
+        },
+        "userList": {
+            "columnName": "Name",
+            "columnEmail": "E-Mail",
+            "columnRoles": "Rollen",
+            "columnCreatedAt": "Erstellt",
+            "columnLastLogin": "Letzter Login",
+            "columnStatus": "Status",
+            "columnDaysInactive": "Tage Inaktiv",
+            "columnActions": "Aktionen",
+            "neverLoggedIn": "Nie",
+            "statusActive": "Aktiv",
+            "statusWarning": "Warnung",
+            "statusDanger": "Gefahr",
+            "statusDisabled": "Deaktiviert",
+            "statusNeverLoggedIn": "Nie Eingeloggt",
+            "buttonDisable": "Deaktivieren",
+            "buttonEnable": "Aktivieren",
+            "confirmDisableTitle": "Benutzer deaktivieren",
+            "confirmDisableMessage": "Sind Sie sicher, dass Sie diesen Benutzer deaktivieren möchten? Der Benutzer kann sich dann nicht mehr anmelden.",
+            "errorSuperAdmin": "Super-Admin-Konten können nicht deaktiviert werden.",
+            "errorLastAdmin": "Der letzte aktive Admin kann nicht deaktiviert werden.",
+            "successDisabled": "Benutzer wurde deaktiviert.",
+            "successEnabled": "Benutzer wurde wieder aktiviert.",
+            "protectedSuperAdmin": "Geschützt (Super-Admin)"
+        },
+        "auditLog": {
+            "columnDate": "Datum",
+            "columnUserName": "Benutzer",
+            "columnUserEmail": "E-Mail",
+            "columnAction": "Aktion",
+            "columnDetails": "Details",
+            "buttonExport": "CSV exportieren",
+            "actionLogin": "Login",
+            "actionFlaggedWarning": "Markiert (Warnung)",
+            "actionFlaggedDanger": "Markiert (Gefahr)",
+            "actionAutoDisabled": "Automatisch deaktiviert",
+            "actionManuallyDisabled": "Manuell deaktiviert",
+            "actionManuallyEnabled": "Wieder aktiviert",
+            "actionReminderSent": "Erinnerung gesendet"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "admin-guard": {
+        "general": {
+            "title": "Admin Guard",
+            "description": "Monitor and manage admin user inactivity"
+        },
+        "tabs": {
+            "users": "Users",
+            "auditLog": "Audit Log"
+        },
+        "userList": {
+            "columnName": "Name",
+            "columnEmail": "Email",
+            "columnRoles": "Roles",
+            "columnCreatedAt": "Created",
+            "columnLastLogin": "Last Login",
+            "columnStatus": "Status",
+            "columnDaysInactive": "Days Inactive",
+            "columnActions": "Actions",
+            "neverLoggedIn": "Never",
+            "statusActive": "Active",
+            "statusWarning": "Warning",
+            "statusDanger": "Danger",
+            "statusDisabled": "Disabled",
+            "statusNeverLoggedIn": "Never Logged In",
+            "buttonDisable": "Disable",
+            "buttonEnable": "Enable",
+            "confirmDisableTitle": "Disable User",
+            "confirmDisableMessage": "Are you sure you want to disable this user? They will no longer be able to log in.",
+            "errorSuperAdmin": "Super admin accounts cannot be disabled.",
+            "errorLastAdmin": "Cannot disable the last active admin.",
+            "successDisabled": "User has been disabled.",
+            "successEnabled": "User has been re-enabled.",
+            "protectedSuperAdmin": "Protected (Super Admin)"
+        },
+        "auditLog": {
+            "columnDate": "Date",
+            "columnUserName": "User",
+            "columnUserEmail": "Email",
+            "columnAction": "Action",
+            "columnDetails": "Details",
+            "buttonExport": "Export CSV",
+            "actionLogin": "Login",
+            "actionFlaggedWarning": "Flagged (Warning)",
+            "actionFlaggedDanger": "Flagged (Danger)",
+            "actionAutoDisabled": "Auto-Disabled",
+            "actionManuallyDisabled": "Manually Disabled",
+            "actionManuallyEnabled": "Re-Enabled",
+            "actionReminderSent": "Reminder Sent"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<sw-page class="admin-guard-index">
+    <template #content>
+        <sw-tabs
+            :small="false"
+            positionIdentifier="admin-guard-tabs"
+        >
+            <sw-tabs-item :route="{ name: 'admin.guard.index.users' }">
+                {{ $tc('admin-guard.tabs.users') }}
+            </sw-tabs-item>
+
+            <sw-tabs-item :route="{ name: 'admin.guard.index.auditLog' }">
+                {{ $tc('admin-guard.tabs.auditLog') }}
+            </sw-tabs-item>
+        </sw-tabs>
+
+        <router-view></router-view>
+    </template>
+</sw-page>

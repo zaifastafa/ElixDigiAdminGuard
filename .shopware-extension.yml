@@ -1,0 +1,10 @@
+build:
+  zip:
+    pack:
+      excludes:
+        paths:
+          - "README.md"
+          - ".shopware-extension.yml"
+          - ".github"
+          - ".gitignore"
+          - "tests"

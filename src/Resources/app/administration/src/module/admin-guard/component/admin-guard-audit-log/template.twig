@@ -1,0 +1,50 @@
+{% block admin_guard_audit_log %}
+<div class="admin-guard-audit-log">
+
+    {% block admin_guard_audit_log_toolbar %}
+    <div class="admin-guard-audit-log__toolbar" style="margin-bottom: 16px; text-align: right;">
+        <sw-button
+            variant="ghost"
+            size="small"
+            @click="onExportCsv"
+        >
+            {{ $tc('admin-guard.auditLog.buttonExport') }}
+        </sw-button>
+    </div>
+    {% endblock %}
+
+    <sw-data-grid
+        :data-source="gridData"
+        :columns="columns"
+        :is-loading="isLoading"
+        :show-selection="false"
+        :show-actions="false"
+    >
+
+        {% block admin_guard_audit_log_column_action %}
+        <template #column-action="{ item }">
+            <sw-label
+                :variant="getActionVariant(item.action)"
+                appearance="pill"
+                size="small"
+            >
+                {{ item.actionLabel }}
+            </sw-label>
+        </template>
+        {% endblock %}
+
+    </sw-data-grid>
+
+    {% block admin_guard_audit_log_pagination %}
+    <sw-pagination
+        v-if="total > 0"
+        :total="total"
+        :page="page"
+        :limit="limit"
+        :auto-hide="false"
+        @page-change="onPageChange"
+    />
+    {% endblock %}
+
+</div>
+{% endblock %}
