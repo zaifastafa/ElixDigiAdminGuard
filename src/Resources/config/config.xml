@@ -63,11 +63,13 @@
             <label lang="de-DE">Wie oft Berichte gesendet werden</label>
             <defaultValue>weekly</defaultValue>
             <options>
-                <option value="daily">
+                <option>
+                    <id>daily</id>
                     <name>Daily</name>
                     <name lang="de-DE">Täglich</name>
                 </option>
-                <option value="weekly">
+                <option>
+                    <id>weekly</id>
                     <name>Weekly</name>
                     <name lang="de-DE">Wöchentlich</name>
                 </option>
