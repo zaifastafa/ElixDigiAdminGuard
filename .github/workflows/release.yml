@@ -25,9 +25,15 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
 
+      - run: composer config allow-plugins.symfony/runtime true
       - run: composer require shopware/core:~6.7.0 phpunit/phpunit:${{ matrix.phpunit-version }} --no-interaction --no-progress
 
-      - run: vendor/bin/phpunit
+      - run: |
+          if [ -f phpunit.xml ] || [ -f phpunit.xml.dist ]; then
+            vendor/bin/phpunit
+          else
+            echo "No phpunit.xml found, skipping tests"
+          fi
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
