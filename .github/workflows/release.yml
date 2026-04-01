@@ -1,0 +1,54 @@
+name: Test & Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - php-version: '8.3'
+            phpunit-version: '^12.0'
+          - php-version: '8.4'
+            phpunit-version: '^13.0'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - run: composer require shopware/core:~6.7.0 phpunit/phpunit:${{ matrix.phpunit-version }} --no-interaction --no-progress
+
+      - run: vendor/bin/phpunit
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shopware/shopware-cli-action@v1
+
+      - run: shopware-cli extension zip . --release --disable-git
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ElixDigiAdminGuard
+          path: '*.zip'
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: '*.zip'
+          generate_release_notes: true

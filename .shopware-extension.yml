@@ -4,6 +4,7 @@ build:
       excludes:
         paths:
           - "README.md"
+          - "phpunit.xml"
           - ".shopware-extension.yml"
           - ".github"
           - ".gitignore"
