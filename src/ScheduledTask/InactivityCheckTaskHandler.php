@@ -40,10 +40,16 @@ class InactivityCheckTaskHandler extends ScheduledTaskHandler
 
             $this->updateTrackingStatus($user);
 
-            if ($autoDisableEnabled && $user['active'] && !$user['admin']) {
+            if ($autoDisableEnabled && $user['active']) {
                 $autoDisableDays = $this->systemConfigService->getInt('ElixDigiAdminGuard.config.autoDisableDays') ?: 180;
                 if ($user['daysInactive'] >= $autoDisableDays) {
-                    $this->userDisableService->disableUser($user['id'], $user['firstName'] . ' ' . $user['lastName'], $user['email']);
+                    $this->userDisableService->disableUser(
+                        $user['id'],
+                        $user['firstName'] . ' ' . $user['lastName'],
+                        $user['email'],
+                        'system',
+                        $user['admin']
+                    );
                 }
             }
         }

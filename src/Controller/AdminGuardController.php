@@ -54,7 +54,7 @@ class AdminGuardController extends AbstractController
         );
 
         if (!$success) {
-            return new JsonResponse(['error' => 'Cannot disable this user (super admin or last active admin)'], Response::HTTP_CONFLICT);
+            return new JsonResponse(['error' => 'Cannot disable the last active super admin'], Response::HTTP_CONFLICT);
         }
 
         return new JsonResponse(['success' => true]);
