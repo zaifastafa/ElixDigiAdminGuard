@@ -50,6 +50,22 @@ Navigate to **Settings > Extensions > ElixDigiAdminGuard** in the admin panel.
 - Requires the plugin system and scheduled tasks (not available on Shopware Cloud).
 - Targets Shopware 6.7+ only.
 
+## Changelog
+
+### 1.2.0
+
+- Register reverse OneToMany associations on `UserDefinition` via entity extension, resolving `dal:validate` errors and enabling `user.adminGuardTracking` / `user.adminGuardAuditLogs` association paths.
+- Verified compatibility with Shopware 6.7.9.0.
+
+### 1.1.0
+
+- Allow disabling stale super admins, protecting only the last active one.
+- Seed tracking table from existing login evidence on plugin install.
+
+### 1.0.0
+
+- Initial release.
+
 ## License
 
 MIT -- see [LICENSE](LICENSE).
