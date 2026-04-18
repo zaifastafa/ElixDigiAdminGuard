@@ -2,7 +2,7 @@
     "name": "elixent-digital/admin-guard",
     "description": "Admin user audit and inactivity management for Shopware 6",
     "type": "shopware-platform-plugin",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "license": "MIT",
     "authors": [
         {
